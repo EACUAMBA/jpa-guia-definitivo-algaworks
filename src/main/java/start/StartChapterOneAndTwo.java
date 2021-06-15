@@ -11,7 +11,7 @@ import java.text.NumberFormat;
 import java.util.List;
 import java.util.Locale;
 
-public class Start {
+public class StartChapterOneAndTwo {
     private static final EntityManager entityManager = JpaUtil.getEntityManager();
     public static void main(String[] args) {
         Car car = new Car();
@@ -41,6 +41,8 @@ public static void deleteCar(Long id){
         entityManager.remove(car);
 
         entityTransaction.commit();
+
+        System.out.println(car);
 }
     public static void updatingCar(){
         EntityTransaction entityTransaction = entityManager.getTransaction();

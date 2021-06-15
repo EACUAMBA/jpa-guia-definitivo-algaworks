@@ -78,4 +78,15 @@ public class Car {
                 this.yearManufactured != null ? this.yearManufactured.hashCode() : 0;
     }
 
+    @Override
+    public String toString() {
+        return "Car{" +
+                "id=" + id +
+                ", manufacturer='" + manufacturer + '\'' +
+                ", model='" + model + '\'' +
+                ", yearManufactured=" + yearManufactured +
+                ", yearModel=" + yearModel +
+                ", price=" + price +
+                '}';
+    }
 }
