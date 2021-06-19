@@ -2,6 +2,7 @@ package start;
 
 import model.Car;
 import model.CarId;
+import model.FuelType;
 import util.JpaUtil;
 
 import javax.persistence.EntityManager;
@@ -13,8 +14,29 @@ public class startChapterFour {
         EntityManager entityManager = JpaUtil.getEntityManager();
         savingData(entityManager);
         fetchingData(entityManager);
+        savingWithEnumType(entityManager);
+
         entityManager.close();
         JpaUtil.close();
+    }
+
+    public static void savingWithEnumType(EntityManager entityManager){
+        System.out.println("\nSaving with Enum type...");
+        EntityTransaction entityTransaction = entityManager.getTransaction();
+        entityTransaction.begin();
+
+        Car car = new Car();
+        CarId carId = new CarId("Gaza", "987-35");
+        car.setCarId(carId);
+        car.setManufacturer("Isuzo");
+        car.setModel("Dmax");
+        car.setYearModel(2021);
+        car.setYearManufactured(2021);
+        car.setFuelType(FuelType.Alcohol);
+        car.setPrice(BigDecimal.valueOf(230_000D));
+        entityManager.persist(car);
+
+        entityTransaction.commit();
     }
 
     public static void fetchingData(EntityManager entityManager){

@@ -21,6 +21,9 @@ public class Car {
     private Integer yearModel;
     @Column(precision = 10, scale = 2, nullable = true)
     private BigDecimal price;
+    @Column(name = "fuel_type", nullable = true)
+    @Enumerated(EnumType.STRING)
+    private FuelType fuelType;
 
     public void setCarId(CarId carId){
         this.carId = carId;
@@ -62,6 +65,13 @@ public class Car {
     }
     public BigDecimal getPrice(){
         return this.price;
+    }
+
+    public void setFuelType(FuelType fuelType){
+        this.fuelType = fuelType;
+    }
+    public FuelType getFuelType(){
+        return this.fuelType;
     }
 
     @Override
