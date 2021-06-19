@@ -8,9 +8,9 @@ import java.util.Objects;
 @Entity
 @Table(name = "tab_car")
 public class Car {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @EmbeddedId
+    private CarId carId;
+
     @Column(length = 60, nullable = false)
     private String manufacturer;
     @Column(length = 60, nullable = false)
@@ -22,11 +22,11 @@ public class Car {
     @Column(precision = 10, scale = 2, nullable = true)
     private BigDecimal price;
 
-    public void setId(Long id){
-        this.id = id;
+    public void setCarId(CarId carId){
+        this.carId = carId;
     }
-    public Long getId(){
-        return this.id;
+    public CarId getCarId(){
+        return this.carId;
     }
 
     public void setManufacturer(String manufacturer){
@@ -69,7 +69,7 @@ public class Car {
        if(o == null) return false;
        if(!(o instanceof Car)) return false;
        Car car =  (Car)o;
-       return this.id.equals(car.id);
+       return this.carId.equals(car.carId);
     }
 
     @Override
@@ -81,7 +81,7 @@ public class Car {
     @Override
     public String toString() {
         return "Car{" +
-                "id=" + id +
+                "id=" + this.carId +
                 ", manufacturer='" + manufacturer + '\'' +
                 ", model='" + model + '\'' +
                 ", yearManufactured=" + yearManufactured +
