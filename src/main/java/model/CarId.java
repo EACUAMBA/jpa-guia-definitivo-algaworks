@@ -30,4 +30,12 @@ public class CarId implements Serializable {
     public String getMatricula(){
         return this.matricula;
     }
+
+    @Override
+    public String toString() {
+        return "CarId{" +
+                "provincia='" + provincia + '\'' +
+                ", matricula='" + matricula + '\'' +
+                '}';
+    }
 }
