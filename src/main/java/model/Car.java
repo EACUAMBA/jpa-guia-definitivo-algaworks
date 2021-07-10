@@ -4,7 +4,9 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 //Plain Old Java Object - POJO -> We don't have modified constructor here.
 @Entity
@@ -45,6 +47,12 @@ public class Car {
 
     @OneToMany(mappedBy = "car")
     private List<Wheels> wheelsList;
+    
+    @ManyToMany
+    @JoinTable(name = "car_acessory",
+    joinColumns = { @JoinColumn(name="car_matricula_id", referencedColumnName = "matricula"), @JoinColumn(name="car_provincia_id", referencedColumnName = "provincia")},
+    inverseJoinColumns = @JoinColumn(name="acessory_id", referencedColumnName = "id"))
+    private Set<Acessory> acessories = new HashSet<>();
 
     public void setCarId(CarId carId) {
         this.carId = carId;
@@ -156,8 +164,18 @@ public class Car {
     public void setWheelsList(List<Wheels> wheelsList) {
         this.wheelsList = wheelsList;
     }
+    
+    
 
-    @Override
+    public Set<Acessory> getAcessories() {
+		return acessories;
+	}
+
+	public void setAcessories(Set<Acessory> acessories) {
+		this.acessories = acessories;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (o == null) return false;
         if (!(o instanceof Car)) return false;

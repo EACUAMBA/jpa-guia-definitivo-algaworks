@@ -14,4 +14,4 @@ insert into tab_wheels(manufacturer, size, quantity) values ('BBSV#', 17, 4);
 insert into tab_wheels(manufacturer, size, quantity, car_provincia_id, car_matricula_id) values ('Alutec', 17, 4, 'Manica', "240-06");
 insert into tab_wheels(manufacturer, size, quantity, car_provincia_id, car_matricula_id) values ('BBS', 17, 4, 'Sofala', "350-07");
 insert into tab_wheels(manufacturer, size, quantity, car_provincia_id, car_matricula_id) values ('Borbet', 17, 6, 'Niassa', "270-03");
-insert into tab_wheels(manufacturer, size, quantity, car_provincia_id, car_matricula_id) values ('MAK', 17, 8, 'Baira', "650-05");
+insert into tab_wheels(manufacturer, size, quantity, car_provincia_id, car_matricula_id) values ('MAK', 17, 8, 'Baira', "650-065");

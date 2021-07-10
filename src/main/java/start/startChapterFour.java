@@ -30,11 +30,13 @@ public class startChapterFour {
         Car car = savingwithLocalDate(entityManager);
         usingTransientAnnotation(entityManager, car);
         savingLargFilesWithLobAnnotation(entityManager);
-        //savingImage(entityManager);
-        //savingOwnersInfo(entityManager);
+        savingImage(entityManager);
+        savingOwnersInfo(entityManager);
         savingWith_OneToOne_Relationship(entityManager);
-        gettingInsusanceAndItsCars(entityManager); //Using bidirectional relationship
+        gettingInsuranceAndItsCars(entityManager); //Using bidirectional relationship
         savingWheelsWith_ManyToOne_Relationship(entityManager);
+        manyToMany(entityManager);
+        printingCar(entityManager);
 
 
         entityManager.close();
@@ -42,9 +44,78 @@ public class startChapterFour {
         entityManager = JpaUtil.getEntityManager();
         gettingWheelsByHisCar(entityManager);
 
+        entityManager.close();
         JpaUtil.close();
     }
+    
+    public static void printingCar(EntityManager entityManager) {
+    	Car car  =  entityManager.find(Car.class, new CarId("Zimbas", "197-092"));
+    	
+    	System.out.println("Acessorios do carro: " + car.getModel());
+    	for(Acessory acessory : car.getAcessories()){
+    		System.out.printf("%n%s%s%n%s%s", "ID: ", acessory.getId(), "Nome: ", acessory.getDescription());
+    	}
+    }
 
+    public static void manyToMany(EntityManager entityManager) {
+    	EntityTransaction entityTransaction = entityManager.getTransaction();
+    	entityTransaction.begin();
+    	
+    	Acessory mp3 = new Acessory();
+    	mp3.setDescription("DVD 2021 Bluetooth");
+    	
+    	Acessory amplificador = new Acessory();
+    	amplificador.setDescription("Amplificador Piooner");
+    	
+    	Acessory almofadas = new Acessory();
+    	almofadas.setDescription("Almofadas de banco");
+    	
+    	Acessory papel = new Acessory();
+    	papel.setDescription("Papel higienico");
+    	
+    	entityManager.persist(papel);
+    	entityManager.persist(almofadas);
+    	entityManager.persist(amplificador);
+    	entityManager.persist(mp3);
+    	
+    	CarId carIdBaira = new CarId("Baira", "650-05");
+    	Car carBaira = entityManager.find(Car.class, carIdBaira);
+    	carBaira.getAcessories().add(papel);
+    	carBaira.getAcessories().add(mp3);
+    	carBaira.getAcessories().add(amplificador);
+    	
+    	CarId carIdNiassa = new CarId("Niassa", "270-03");
+    	Car carNiassa = entityManager.find(Car.class, carIdNiassa);
+    	carNiassa.getAcessories().add(papel);
+    	carNiassa.getAcessories().add(almofadas);
+    	
+    	CarId carId = new CarId("Zimbas", "197-092");
+        Car car = new Car();
+        car.setCarId(carId);
+        car.setSubscriptionDate(LocalDate.now());
+        car.setYearModel(1965);
+        car.setManufacturer("Zort");
+        car.setModel("Poert");
+        car.setPrice(BigDecimal.valueOf(123_000_32.4D));
+        car.setYearManufactured(2004);
+        car.setFuelType(FuelType.Gas);
+        car.getAcessories().add(papel);
+        car.getAcessories().add(mp3);
+        car.getAcessories().add(almofadas);
+        car.getAcessories().add(amplificador);
+        entityManager.persist(car);
+    	
+    	entityTransaction.commit();
+    	entityManager.detach(car);
+    	entityManager.detach(carBaira);
+    	entityManager.detach(carNiassa);
+    	entityManager.detach(papel);
+    	entityManager.detach(almofadas);
+    	entityManager.detach(amplificador);
+    	entityManager.detach(mp3);
+    	
+    }
+    
     public static void gettingWheelsByHisCar(EntityManager entityManager)  {
         System.out.println("\n\n\n Getting wheels!");
         CarId carId = new CarId("Gaza", "750-01");
@@ -91,7 +162,7 @@ public class startChapterFour {
         //Muitas jantes podem pertencer a um e apenas um carro. Assim temo um carro que que tem as duas jantes, BBS e BBSV#
     }
 
-    public static void gettingInsusanceAndItsCars(EntityManager entityManager){
+    public static void gettingInsuranceAndItsCars(EntityManager entityManager){
         System.out.println("\n\nBidirectional Relationship!");
         InsuranceCar insuranceCar = entityManager.find(InsuranceCar.class, 1);
         System.out.printf("%s%nDetails: %s%nStart date: %s%nEnd Date: %s", insuranceCar.getCar().getCarId(), insuranceCar.getCar().getInsuranceCar().getDetails(), insuranceCar.getStartDate().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")), insuranceCar.getEndDate().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
