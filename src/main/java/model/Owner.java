@@ -10,6 +10,8 @@ package model;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.persistence.JoinColumn;
+
 import java.io.Serializable;
 
 @Embeddable
@@ -23,6 +25,7 @@ public class Owner implements Serializable {
 
     @Column(name = "owner_email")
     private String email;
+    
 
     public String getName() {
         return name;

@@ -15,3 +15,7 @@ insert into tab_wheels(manufacturer, size, quantity, car_provincia_id, car_matri
 insert into tab_wheels(manufacturer, size, quantity, car_provincia_id, car_matricula_id) values ('BBS', 17, 4, 'Sofala', "350-07");
 insert into tab_wheels(manufacturer, size, quantity, car_provincia_id, car_matricula_id) values ('Borbet', 17, 6, 'Niassa', "270-03");
 insert into tab_wheels(manufacturer, size, quantity, car_provincia_id, car_matricula_id) values ('MAK', 17, 8, 'Baira', "650-05");
+
+INSERT into owner(id, name) values (10, 'Edilson');
+INSERT into owner(id, name) values (20, 'Luis');
+INSERT into owner(id, name) values (30, 'Carlos');

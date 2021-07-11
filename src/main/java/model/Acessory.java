@@ -9,9 +9,10 @@
 
 package model;
 
+import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,7 +22,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "tab_acessory")
-public class Acessory {
+public class Acessory implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8067753629186275142L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -29,7 +35,7 @@ public class Acessory {
 	private String description;
 	
 	@ManyToMany(mappedBy = "acessories")
-	private Set<Car> cars;
+	private Set<Car> cars = new HashSet<>();
 
 	public Long getId() {
 		return id;
@@ -46,6 +52,15 @@ public class Acessory {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+	public Set<Car> getCars() {
+		return cars;
+	}
+
+	public void setCars(Set<Car> cars) {
+		this.cars = cars;
+	}
+	
 	
 	
 }
