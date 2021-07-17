@@ -15,10 +15,14 @@ import javax.persistence.EntityTransaction;
 import model.owner_phone.OwnerPhone;
 import util.JpaUtil;
 
+import java.io.IOException;
+import java.security.SecureRandom;
+
 public class UsingCollectionAsPropertyContext {
 	private static EntityManager entityManager;
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
+		//startChapterFour.main(new String[]{" ", " "});
 		entityManager = JpaUtil.getEntityManager();
 		save();
 		read();
@@ -42,7 +46,7 @@ public class UsingCollectionAsPropertyContext {
 		entityTransaction.begin();
 		
 		OwnerPhone ownerPhone = new OwnerPhone();
-		ownerPhone.setName("Luisão");
+		ownerPhone.setName("Luisï¿½o");
 		ownerPhone.getContacts().add("123456789");
 		ownerPhone.getContacts().add("12422123456712121289");
 		ownerPhone.getContacts().add("123123123123000123");

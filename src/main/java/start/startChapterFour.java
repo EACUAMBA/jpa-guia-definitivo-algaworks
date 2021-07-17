@@ -45,7 +45,7 @@ public class startChapterFour {
 		gettingWheelsByHisCar(entityManager);
 
 		entityManager.close();
-		JpaUtil.close();
+
 	}
 
 	public static void printingCarsOfAcessories(EntityManager entityManager) {
