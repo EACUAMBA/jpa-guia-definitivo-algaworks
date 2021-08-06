@@ -8,7 +8,7 @@ public class JpaUtil {
     private static final EntityManagerFactory entityManagerFactory;
 
     static {
-        entityManagerFactory = Persistence.createEntityManagerFactory("development-home");
+        entityManagerFactory = Persistence.createEntityManagerFactory("MariaDB-Home-PU");
     }
 
     public static EntityManager getEntityManager(){
