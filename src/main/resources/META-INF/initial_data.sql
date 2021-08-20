@@ -1,0 +1,15 @@
+insert into lazyloading_eagerloading_categoria (id, nome) value (10, 'bebidas')
+insert into lazyloading_eagerloading_categoria (id, nome) value (20, 'electrodomesticos')
+insert into lazyloading_eagerloading_categoria (id, nome) value (30, 'moveis')
+
+insert into lazyloading_eagerloading_produto (id, categoria_id, nome) values (1, 10, 'Gin')
+insert into lazyloading_eagerloading_produto (id, categoria_id, nome) values (2, 10, '2M')
+insert into lazyloading_eagerloading_produto (id, categoria_id, nome) values (3, 10, 'Txilar')
+insert into lazyloading_eagerloading_produto (id, categoria_id, nome) values (5, 10, 'Coca-Cola')
+insert into lazyloading_eagerloading_produto (id, categoria_id, nome) values (4, 20, 'Frigorifico')
+insert into lazyloading_eagerloading_produto (id, categoria_id, nome) values (6, 20, 'Fogao')
+insert into lazyloading_eagerloading_produto (id, categoria_id, nome) values (8, 30, 'DVD')
+insert into lazyloading_eagerloading_produto (id, categoria_id, nome) values (9, 30, 'Cama')
+insert into lazyloading_eagerloading_produto (id, categoria_id, nome) values (21 , 30, 'Guarda fato')
+insert into lazyloading_eagerloading_produto (id, categoria_id, nome) values (56, 30, 'Sofa')
+
