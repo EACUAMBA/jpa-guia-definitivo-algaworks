@@ -1,7 +1,7 @@
-package context;
+package eager_and_lazy_loading.context;
 
-import domain.model.Categoria;
-import domain.model.Produto;
+import eager_and_lazy_loading.model.Categoria;
+import eager_and_lazy_loading.model.Produto;
 import util.JpaUtil;
 
 import javax.persistence.EntityManager;

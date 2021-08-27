@@ -1,15 +1,16 @@
-package domain.model;
+package operacoes_em_cascata.exclusao_em_cascata.model;
 
 
 
-import jdk.nashorn.internal.objects.annotations.Setter;
 import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
+@Setter
 @Getter
-@Entity
-@Table(name = "lazyloading_eagerloading_produto")
+@Entity(name = "exclusao_em_cascata_produto")
+@Table(name = "exclusao_em_cascata_produto")
 public class Produto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +19,7 @@ public class Produto {
     @Column(length = 255, nullable = true)
     private String nome;
 
-    @ManyToOne(optional = false, fetch = FetchType.LAZY) // Estamos dizendo se é obrigatorio ou nao um produto ter uma categoria
+    @ManyToOne(optional = true, cascade = CascadeType.PERSIST /*Esta anotação diz ao JPQ para salver este objecto.*/)
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
 

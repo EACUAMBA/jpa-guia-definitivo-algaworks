@@ -1,4 +1,4 @@
-package domain.model;
+package eager_and_lazy_loading.model;
 
 import lombok.Getter;
 import lombok.Setter;
