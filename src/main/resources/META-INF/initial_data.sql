@@ -41,8 +41,13 @@
 -- insert into operacoes_em_lote_usuario(id, email, estado) values (11, 'a@gmail.com', false)
 -- insert into operacoes_em_lote_usuario(id, email, estado) values (12, 'a@gmail.com', false)
 
-insert into lock_otimista_produto(id, nome, preco, version) values (1, 'Agua 1L', 30.0, 0)
-insert into lock_otimista_produto(id, nome, preco, version) values (2, 'Agua 2L', 60.0, 0)
-insert into lock_otimista_produto(id, nome, preco, version) values (3, 'Agua 5L', 200.0, 0)
+-- insert into lock_otimista_produto(id, nome, preco, version) values (1, 'Agua 1L', 30.0, 0)
+-- insert into lock_otimista_produto(id, nome, preco, version) values (2, 'Agua 2L', 60.0, 0)
+-- insert into lock_otimista_produto(id, nome, preco, version) values (3, 'Agua 5L', 200.0, 0)
+
+insert into cache_de_segundo_nivel_centro_custo (id, designacao) values (1, 'Tech');
+insert into cache_de_segundo_nivel_centro_custo (id, designacao) values (1, 'Hibrido');
+insert into cache_de_segundo_nivel_centro_custo (id, designacao) values (1, 'HyLurio');
+insert into cache_de_segundo_nivel_centro_custo (id, designacao) values (1, 'Royal');
 
 

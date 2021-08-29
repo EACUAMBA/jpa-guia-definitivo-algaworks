@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_2.xsd"
-             version="2.0">
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
+             version="2.2">
     <persistence-unit name="MariaDB-Home-PU">
         <properties>
             <property name="javax.persistence.jdbc.url"
@@ -61,6 +62,8 @@
     </persistence-unit>
 
     <persistence-unit name="MySQL8-Home-PU">
+        <shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode> <!--Tem que ser a primeira.-->
+
         <properties>
             <property name="javax.persistence.jdbc.url"
                       value="jdbc:mysql://localhost/dealership?createDatabaseIfNotExist=true&amp;useSSL=false&amp;useTimezone=true&amp;serverTimezone=CAT&amp;characterEncoding=UTF-8"/>
@@ -72,6 +75,12 @@
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
+
+<!--            Configurações do cache de segundo nível-->
+
+            <property name="hibernate.cache.region.factory_class" value="org.hibernate.cache.jcache.internal.JCacheRegionFactory"/>
+            <property name="hibernate.javax.cache.provicer" value="org.hibernate.jsr107.EhcacheCachingProvider"/>
+            <property name="hibernate.javax.cache.uri" value="META-INF/ehcache.xml"/>
         </properties>
     </persistence-unit>
 </persistence>
