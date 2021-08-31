@@ -2,7 +2,6 @@ package domain.model;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.util.HashSet;
 import java.util.Set;
@@ -15,4 +14,5 @@ public class Acessorio {
 
     @ManyToMany(mappedBy = "acessorios")
     private Set<Veiculo> veiculos = new HashSet<>();
+
 }
