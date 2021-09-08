@@ -1,8 +1,14 @@
 package domain.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "proprietario")
 public class Proprietario {
@@ -18,10 +24,7 @@ public class Proprietario {
 
     @ElementCollection
     @CollectionTable(name = "proprietario_telefone",
-    joinColumns = {@JoinColumn(name="proprietario_id")},
-    @AttributeOverrides({
-            @AttributeOverride(name = "numero",
-            column = @Column(name = "telefone_numero", length = 20, nullable = false))
-    }))
-    private List<Telefone> telefones;
+    joinColumns = {@JoinColumn(name="proprietario_id")})
+@Column(name = "numero")
+    private List<String> telefones = new ArrayList<>();
 }

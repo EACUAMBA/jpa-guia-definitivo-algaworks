@@ -1,10 +1,15 @@
 package domain.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Set;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "veiculo")
 public class Veiculo {
@@ -46,7 +51,7 @@ public class Veiculo {
     @JoinColumn(name = "proprietario_codigo")
     private Proprietario proprietario;
 
-    @OneToMany
+    @ManyToMany
     @JoinTable(name = "veiculo_acessorio", joinColumns = {
             @JoinColumn(name = "veiculo_codigo")
     },
