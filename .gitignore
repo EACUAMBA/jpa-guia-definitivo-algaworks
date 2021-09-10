@@ -3,3 +3,8 @@
 *.iml
 *.class
 *.classpath
+/.dbeaver
+/.settings
+/.bin
+.classpath
+.project
