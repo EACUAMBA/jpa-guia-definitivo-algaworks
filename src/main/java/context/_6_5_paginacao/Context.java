@@ -21,6 +21,5 @@ public class Context {
             System.out.printf("ID - %d%nModelo - %s%n%n", veiculo.getId(), veiculo.getModelo());
         }
 
-
     }
 }
