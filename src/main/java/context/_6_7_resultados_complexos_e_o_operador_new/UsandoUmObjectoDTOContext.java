@@ -1,10 +1,9 @@
-package context._resultados_complexos_e_o_operador_new;
+package context._6_7_resultados_complexos_e_o_operador_new;
 
 import domain.dto.PrecoVeiculo;
 import util.JpaUtil;
 
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import java.math.BigDecimal;
 import java.util.List;
