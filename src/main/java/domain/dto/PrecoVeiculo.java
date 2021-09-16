@@ -13,6 +13,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PrecoVeiculo {
+    private Long id;
     private String modelo;
     private BigDecimal valor;
 }
