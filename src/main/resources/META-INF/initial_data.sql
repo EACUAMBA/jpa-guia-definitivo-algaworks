@@ -16,6 +16,12 @@ insert into proprietario_telefone (proprietario_id, numero) values (3, '12345678
 insert into proprietario (id, nome ) values (4, 'Edilson4' );
 insert into proprietario_telefone (proprietario_id, numero) values (4, '1234567894');
 
+insert into proprietario (id, nome ) values (5, 'Edilson5' );
+insert into proprietario_telefone (proprietario_id, numero) values (5, '1234567894');
+
+insert into proprietario (id, nome ) values (6, 'Edilson6' );
+insert into proprietario_telefone (proprietario_id, numero) values (6, '1234567894');
+
 
 insert into veiculo (id, fabricante, modelo, ano_fabrico, ano_modelo, valor, tipo_combustivel, data_cadastro, especificacoes, proprietario_codigo) values(1, '1 Mazda', 'BT-50', 2006, 2010, 1500000.00, 'ALCOOL', '2010-10-18', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat magna nunc, tincidunt pellentesque mi sollicitudin sit amet. Suspendisse potenti. Nulla eu arcu dignissim erat ornare ullamcorper eget a ligula. Vestibulum nec tellus f', 1);
 
