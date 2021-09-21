@@ -12,6 +12,12 @@ import java.util.Set;
 @Setter
 @Entity
 @Table(name = "veiculo")
+/*_6_11_queries_nomeadas*/
+@NamedQuery(
+        name="Veiculo.comProprietarioPorValor",
+        query = "select v  from Veiculo v inner join fetch v.proprietario where v.valor < :valor"
+)
+/*_6_11_queries_nomeadas*/
 public class Veiculo {
 
     @Id
