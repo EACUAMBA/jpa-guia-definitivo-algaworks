@@ -14,19 +14,19 @@ public class ConsultaSimplesContext {
     public static void main(String[] args) {
         EntityManager entityManager = JpaUtil.getEntityManager();
 
-        //Pegamos uma instancia do CriteriaBuilder e colocamos em uma interface CriteriaBuilder agora podemos usar essa interface para criar vários objectos queies para fazer varias consultas.
+        //Criamos um Criteria Builder para consegurimos criar as queries com o CriteriaQuery
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
 
-        //Agora usamos o metodo createQuery(Classe de consulta) para criar uma query
+        //Criamos um query com o tipo de resultado que esperamos, aqui esperamos, esperamos um Veiculo.
         CriteriaQuery<Veiculo> veiculoCriteriaQuery = criteriaBuilder.createQuery(Veiculo.class);
 
-        //Depois disso vamos chamar o metodo from da nossa query para obtermos um root, uma raiz.
+        //Criamos e adicionamos um raiz de pesquisa, que deve corresponder a entidade que vamosdar, damos como parametro a entidade que queremos fazer a pesuqisa.
         Root<Veiculo> veiculoRoot = veiculoCriteriaQuery.from(Veiculo.class);
 
-        //Aqui infomamos com o metodo select(Root) o que queremos fazer
+        //Aqui estamos especificando o item que sera retornado pela queri, que procura que sera resornado< agora será um select.
         veiculoCriteriaQuery.select(veiculoRoot);
 
-
+        //Criando query.
         TypedQuery<Veiculo> veiculoTypedQuery = entityManager.createQuery(veiculoCriteriaQuery);
 
         List<Veiculo> veiculoList = veiculoTypedQuery.getResultList();

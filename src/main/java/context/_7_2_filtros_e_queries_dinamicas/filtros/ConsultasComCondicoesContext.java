@@ -1,4 +1,4 @@
-package context._7_2_filtros_e_queries_dinamicas;
+package context._7_2_filtros_e_queries_dinamicas.filtros;
 
 import domain.model.TipoCombustivel;
 import domain.model.Veiculo;
