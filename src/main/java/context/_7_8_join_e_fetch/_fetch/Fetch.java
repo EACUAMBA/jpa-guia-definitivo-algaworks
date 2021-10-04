@@ -2,7 +2,9 @@ package context._7_8_join_e_fetch._fetch;
 
 import context._7_7_ordenacao_de_resultado.OrdenacaoDeResultado;
 import domain.model.Proprietario;
+import domain.model.Proprietario_;
 import domain.model.Veiculo;
+import domain.model.Veiculo_;
 import util.JpaUtil;
 
 import javax.persistence.EntityManager;
@@ -22,10 +24,10 @@ public class Fetch {
 
         Root<Veiculo> veiculoRoot = cq.from(Veiculo.class);
 
-        Join<Veiculo, Proprietario> proprietarioJoin = (Join) veiculoRoot.fetch("proprietario");
+        Join proprietarioJoin = (Join) veiculoRoot.fetch(Veiculo_.PROPRIETARIO);
 
         cq.select(veiculoRoot);
-        cq.where(cb.equal(proprietarioJoin.get("nome"), "Edilson"));
+        cq.where(cb.equal(proprietarioJoin.get(Proprietario_.NOME), "Edilson"));
 
         TypedQuery<Veiculo> veiculoTypedQuery = this.entityManager.createQuery(cq);
 
